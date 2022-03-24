@@ -1,0 +1,116 @@
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
+
+public class HolidayHome {
+
+	public static void main(String[] args) {
+		Holiday h = new Holiday();
+		h.setHoliday("Raju", LocalDate.of(2022, 3, 31),LocalDate.of(2022,4,1), 2);
+		System.out.println("Welcome to Holiday Home");
+		System.out.println(h.toString());
+		
+		Place p = new Place();
+		p.setPlace("Raju", LocalDate.of(2022, 3, 31),LocalDate.of(2022,4,1), 2 ,"Bangalore");
+		System.out.println(p.toString());
+		
+		HolidayPackage hp = new HolidayPackage();
+		hp.setPackageAmount(500);
+		
+		String s=hp.toString();
+		System.out.println(s);
+	}
+
+}
+class Holiday
+{
+	String name;
+	LocalDate dateOfVisit;
+	LocalDate dateOfReturn;
+	int noOfDays;
+	public void setHoliday(String name, LocalDate dateOfVisit, LocalDate dateOfReturn, int noOfDays) 
+	{
+		this.name = name;
+		this.dateOfVisit = dateOfVisit;
+		this.dateOfReturn = dateOfReturn;
+		this.noOfDays = noOfDays;
+	}
+	@Override
+	public String toString() {
+		return "Holiday [name=" + name + ", dateOfVisit=" + dateOfVisit + ", dateOfReturn=" + dateOfReturn
+				+ ", noOfDays=" + noOfDays + "]";
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public LocalDate getDateOfVisit() {
+		return dateOfVisit;
+	}
+	public void setDateOfVisit(LocalDate dateOfVisit) {
+		this.dateOfVisit = dateOfVisit;
+	}
+	public LocalDate getDateOfReturn() {
+		return dateOfReturn;
+	}
+	public void setDateOfReturn(LocalDate dateOfReturn) {
+		this.dateOfReturn = dateOfReturn;
+	}
+	public int getNoOfDays() {
+		return noOfDays;
+	}
+	public void setNoOfDays(int noOfDays) {
+		this.noOfDays = noOfDays;
+	}
+	
+	
+}
+class Place extends Holiday	
+{
+	String placeOfVisit;
+
+	public void setPlace(String name, LocalDate dateOfVisit, LocalDate dateOfReturn, int noOfDays,String placeOfVisit) {
+		super.setHoliday(name, dateOfVisit, dateOfReturn, noOfDays);
+		this.placeOfVisit = placeOfVisit;
+	}
+
+	@Override
+	public String toString() {
+		return "Place [placeOfVisit=" + placeOfVisit + "]";
+	}
+
+	public String getPlaceOfVisit() {
+		return placeOfVisit;
+	}
+
+	public void setPlaceOfVisit(String placeOfVisit) {
+		this.placeOfVisit = placeOfVisit;
+	}
+	
+}
+
+class HolidayPackage extends Place
+{
+	int packageAmount;
+
+	public void setHolidayPackage(String name, LocalDate dateOfVisit, LocalDate dateOfReturn, int noOfDays,String placeOfVisit,int packageAmount) 
+	{
+		super.setPlace(name, dateOfVisit, dateOfReturn, noOfDays, placeOfVisit);
+		this.packageAmount = packageAmount;
+	}
+
+	@Override
+	public String toString() {
+		return "HolidayPackage [packageAmount=" + packageAmount + "]";
+	}
+
+	public int getPackageAmount() {
+		return packageAmount;
+	}
+
+	public void setPackageAmount(int packageAmount) {
+		this.packageAmount = packageAmount;
+	}
+}
