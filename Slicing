@@ -1,0 +1,57 @@
+public class LivingBeings {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Frog f = new Frog();
+		FrogOnLand.jumpOnLand(f);
+	}
+
+}
+interface Butterfly
+{
+	void fly();
+}
+interface Fish
+{
+	void Swim();
+}
+class Organisms{
+	static void swim()
+	{
+	
+	}
+}
+
+interface Swim
+{
+	void swimming ();
+	
+}
+interface Jump
+{
+	void jumping();
+}
+
+class Frog implements Swim,Jump{
+
+	@Override
+	public void jumping() {
+		System.out.println("The Frog is Jumping.");
+		
+	}
+
+	@Override
+	public void swimming() {
+		System.out.println("The Frog is Jumping..");
+		
+	}
+	
+}
+class FrogOnLand 
+{
+	static void jumpOnLand(Jump j) 
+	{
+		j.jumping();
+	}
+}
+
