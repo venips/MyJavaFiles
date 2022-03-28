@@ -1,0 +1,49 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ExceptionTest {
+
+	public static void main(String[] args) {
+		System.out.println("Line1");
+		System.out.println("Line2");
+		System.out.println("Line3");
+		Scanner scan = new Scanner(System.in);
+		try {
+			System.out.println("Enter the value for x :");
+			int x = scan.nextInt();
+			System.out.println("x "+x);
+			
+			System.out.println("Enter the value for y :");
+			int y = scan.nextInt();
+			System.out.println("y "+y);
+			
+			int z = x / y;
+			System.out.println("Division  :"+z);
+			
+//			String str = null;
+//			System.out.println(str.toUpperCase()+"is :"+z);
+		}
+		
+		catch(InputMismatchException e) {
+			System.out.println("Please enter numbers..");
+		}
+		catch(ArithmeticException e) {
+			System.out.println("Please enter denomination..");
+		}
+		catch(NullPointerException e) {
+			System.out.println("The string value is NULL");	
+		}
+		catch(RuntimeException e) {
+			System.out.println("Some runtime exception occurred ");
+		}
+		catch(Exception e) {
+			System.out.println("Some exception occurred");
+		}
+		catch(Throwable e) {
+			System.out.println("Error occurred");
+		}
+		System.out.println("Line4");
+		System.out.println("Line5");
+		System.out.println("Line6");
+	}
+}
